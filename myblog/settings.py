@@ -27,7 +27,7 @@ SECRET_KEY = 'f#*^76zq47!v_$i$%=o^o6uqs0lvh=k)pmdy@98#wmr@7n$7s_'
 DEBUG = True
 
 # 允许外界通过什么域名来访问网站。
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,8 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'blog2'
+    'blog2',
+    'django_grpc'
 ]
+
+GRPCSERVER = {
+     'servicers': ['dotted.path.to.callback.eg.grpc_hook'],  # see `grpc_hook()` below
+     'interceptors': ['dotted.path.to.interceptor_class',],  # optional, interceprots are similar to middleware in Django
+     'maximum_concurrent_rpcs': None,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # 如果想要改成英文，就是en-us
 # 如果是中文，那就zh_Hans（简体），zh_Hant（繁体）
 
-LANGUAGE_CODE = 'zh_Hans'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
