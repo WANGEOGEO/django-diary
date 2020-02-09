@@ -40,15 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'blog2',
-    'django_grpc'
+    'blog2'
 ]
-
-GRPCSERVER = {
-     'servicers': ['dotted.path.to.callback.eg.grpc_hook'],  # see `grpc_hook()` below
-     'interceptors': ['dotted.path.to.interceptor_class',],  # optional, interceprots are similar to middleware in Django
-     'maximum_concurrent_rpcs': None,
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
